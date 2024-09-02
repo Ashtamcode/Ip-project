@@ -57,10 +57,12 @@ def take_exam(dff):
     q_done = []
     for index, rows in dff.iterrows():
         print("Q",count ,rows['Q'])
+        
         count += 1
         start_time = t.time()
         ans = input("Enter your answer (True/False):")
-        if ans.upper() == rows['A'].upper() or ans.upper == rows["A"][0].upper():
+        print('\n')
+        if ans.upper() == str(rows['A'].upper()) or ans.upper == str(rows["A"][0].upper()):
             # print("Correct")
             score += 1
             
@@ -79,6 +81,8 @@ def take_exam(dff):
     if anly.upper() == 'Y':
 
         py.plot(q_done,t_for_q , 'r')
+        py.xlabel('No. of questions Done')
+        py.ylabel('Time taken to do 1 question')
         py.show() 
     else:
         pass
