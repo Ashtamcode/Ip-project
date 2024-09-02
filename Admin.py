@@ -32,10 +32,7 @@ def update_student():
     Cursor = conn.cursor()
     User_ID = input("Enter User_ID of Student to be updated : ")
     data = input("Enter the field of which data is to be updated")
-    if data.upper == 'User_ID':
-
-        n_user_Id = str(input("Please Enter your student Email ID:"))
- 
+    n_user_Id = str(input("Please Enter your student Email ID:"))
     n_Password = str(input("Enter your password:"))
     n_Name = str(input('Please enter your name:'))
     n_DOB = str(input('Enter your Date of Birth in YYYY-MM-DD Format '))
