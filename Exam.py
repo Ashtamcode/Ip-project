@@ -2,6 +2,7 @@ import mysql.connector as sql
 import pandas as pd
 import time as t
 import matplotlib.pyplot as py
+import numpy as np
 
 
 def phy_exam():
@@ -45,31 +46,30 @@ def create_exam(choice):
     else:
         return chem_exam()
 
-# def saved_exam():
-    
-
 
 def take_exam(dff):
-    count = 1
-    score = 0
     total = 5
     t_for_q = []
     q_done = []
+    count = 0
+    score = 0
+
     for index, rows in dff.iterrows():
-        print("Q",count ,rows['Q'])
-        
         count += 1
+        print(f"Q {count}: {rows['Q']}")
+
         start_time = t.time()
-        ans = input("Enter your answer (True/False):")
+        ans = input("Enter your answer (True/False): ")
         print('\n')
-        if ans.upper() == str(rows['A'].upper()) or ans.upper == str(rows["A"][0].upper()):
-            # print("Correct")
+
+        if ans.lower() == 'true' and rows['A']:
             score += 1
-            
+        elif ans.lower() == 'false' and not rows['A']:
+            score += 1
         else:
-            #print("Wrong")
+            # print("Wrong")
             pass
-            
+
         end_time = t.time()
         t_for_q.append(int(end_time - start_time))
         q_done.append(count)
@@ -86,12 +86,4 @@ def take_exam(dff):
         py.show() 
     else:
         pass
-# make changes in this
 
-# m
-# take_exam(e)
-
-
-''' step -1 : 2 list - 2 columns - 1st question, 2nd time taken 
-
-step -2 question flag, 1, for loop'''
