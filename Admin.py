@@ -1,7 +1,6 @@
 import mysql.connector as sql
 import random as r
-
-
+access_codes = {}
 def data_enter_student():
     conn = sql.connect(host="localhost", user="root", password="root", database="student_info")
     cursor = conn.cursor()
