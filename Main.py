@@ -5,7 +5,7 @@ import time as t
 import mysql.connector as sql
 
 Acess_code = 123
-import mysql.connector as sql
+
 
 conn = sql.connect(host="localhost", user="root", password="root", database="student_info")
 
@@ -22,7 +22,7 @@ if ac_check == Acess_code:
     while ac_check == Acess_code:
     
         print("Welcome to Admin")
-        choice = int(input("Please enter your Choice \n 1 for Adding a student \n 2 for Updating a Student data \n 3 for deleting a student Data \n 4 for searching a Student User_ID \n 5 For showing Acceess code of student \n 6 For creating an Exam \n 7 TO exit the interface" ))
+        choice = int(input("Please Enter your Choice \n 1 for Adding a student \n 2 for Updating a Student data \n 3 for Deleting a student Data \n 4 for Searching a Student User_ID \n 5 for Showing Access code of student \n 6 for Creating an Exam \n 7 to Exit the interface" ))
         if choice == 1:
             a.data_enter_student()
             t.sleep(5)
@@ -60,6 +60,8 @@ elif ac_check == df1['Access_code'][0]:
         dff = pd.DataFrame(df)
             #print(dff)
         e.take_exam(dff)
+else:
+    print("Invalid access code. Please try again.")
     
 cursor.close()
 conn.close()
